@@ -14,8 +14,14 @@ public class TestingMain {
             System.out.println("Test failed");
         }
         Calculator calculator = new Calculator();
-        calculator.CalculatorAdd(10,50);
-        calculator.CalculatorSub(50,10);
+        int addResult = calculator.CalculatorAdd(10,50);
+        int subResult = calculator.CalculatorSub(50,10);
+
+        if(addResult == 60 & subResult == 40){
+            System.out.println("Test ok");
+        } else {
+            System.out.println("Test failed");
+        }
 
     }
 }
