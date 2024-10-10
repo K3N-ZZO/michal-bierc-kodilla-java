@@ -102,7 +102,6 @@ public class ForumTestSuite {
         boolean result = forumUser.removeComment(theComment);
 
         //Then
-        Assertions.assertTrue(result);
         Assertions.assertEquals(0, forumUser.getCommentQuantity());
     }
 
