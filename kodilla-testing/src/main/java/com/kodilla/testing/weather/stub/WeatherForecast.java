@@ -28,7 +28,6 @@ public class WeatherForecast {
     public double medianTemperature(){
         List<Double> temp = temperatures.getTemperatures().values().stream().sorted().toList();
         return temp.get(temp.size()/2);
-
     }
 
 }
