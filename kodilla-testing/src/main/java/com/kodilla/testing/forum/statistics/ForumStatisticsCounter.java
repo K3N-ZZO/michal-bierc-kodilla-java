@@ -13,19 +13,19 @@ public class ForumStatisticsCounter {
         this.numberOfPosts = statistics.postsCount();
         this.numberOfComments = statistics.commentsCount();
 
-        // Obliczanie średnich
+        //Obliczanie średnich
         if (numberOfUsers > 0) {
-            this.averageNumberOfPosts = (double) numberOfPosts / numberOfUsers;
-            this.averageNumberOfComments = (double) numberOfComments / numberOfUsers;
+            this.averageNumberOfPosts =  numberOfPosts / (double) numberOfUsers;
+            this.averageNumberOfComments = numberOfComments / (double) numberOfUsers;
         } else {
-            this.averageNumberOfPosts = 0;
-            this.averageNumberOfComments = 0;
+            this.averageNumberOfPosts = 0.0;
+            this.averageNumberOfComments = 0.0;
         }
 
         if (numberOfPosts > 0) {
-            this.averageNumberOfCommentsPerPost = (double) numberOfComments / numberOfPosts;
+            this.averageNumberOfCommentsPerPost =  numberOfComments / (double) numberOfPosts;
         } else {
-            this.averageNumberOfCommentsPerPost = 0;
+            this.averageNumberOfCommentsPerPost = 0.0;
         }
     }
     public void showStatistics(){
