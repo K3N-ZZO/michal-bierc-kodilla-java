@@ -1,6 +1,6 @@
 package com.kodilla.stream.iterate;
 
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 public class NumbersGenerator {
 
