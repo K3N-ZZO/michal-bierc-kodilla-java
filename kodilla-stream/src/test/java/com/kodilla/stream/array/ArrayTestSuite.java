@@ -15,5 +15,6 @@ public class ArrayTestSuite {
         //Then
         assertEquals(5.5,average);
 
+        //
     }
 }
