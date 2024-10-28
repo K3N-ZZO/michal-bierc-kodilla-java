@@ -15,7 +15,10 @@ public class SecondChallengeTestSuite {
                 () -> assertThrows(Exception.class, () -> sc.propablyIWillThrowException(2.0,1.0)),
                 () -> assertThrows(Exception.class, () -> sc.propablyIWillThrowException(0.5,1.0)),
                 () ->assertThrows(Exception.class, () -> sc.propablyIWillThrowException(1.5,1.5)),
-                () -> assertDoesNotThrow(()->sc.propablyIWillThrowException(1.5,1.0))
+                () -> assertDoesNotThrow(()->sc.propablyIWillThrowException(1.5,1.0)),
+
+                () -> assertThrows(Exception.class, () -> sc.propablyIWillThrowException(1.0,1.5)),
+                () -> assertDoesNotThrow(()->sc.propablyIWillThrowException(1.0,1.0))
             );
     }
 }
