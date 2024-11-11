@@ -1,29 +1,20 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 public class Main {
     public static void main(String[] args) {
+        User user = new User(" Jan Kowalski ", " jankowalski@wp.pl ");
+        Product product = new Product(" Szczoteczka do zębów ", 13.99);
 
-        Factorial factorial = new Factorial();
+        OrderRequest orderRequest = new OrderRequest(user, product);
 
-
-        int sum = Factorial.factorialCalculate(5);
-
-        System.out.println(sum);
-
-
-        MovieStore movieStore = new MovieStore();
-
-        Map<String, List<String>> movies = movieStore.getMovies();
-
-        String result = movies.values().stream()
-                .flatMap(List::stream)
-                .collect(Collectors.joining("!"));
-        System.out.println(result);
+        InformationService informationService = new EmailInformationService();
+        OrderService orderService = new SimpleOrderService();
+        OrderRepository orderRepository = new MemoryOrderRepository();
 
 
+        OrderProcessor orderProcessor = new OrderProcessor(informationService, orderService, orderRepository);
+
+        OrderDto orderDto = OrderProcessor.process(orderRequest);
+        System.out.println(" Podsumowanie zamówienia: " + orderDto);
     }
 }
