@@ -1,13 +1,10 @@
 package com.kodilla.good.patterns.food2door;
 
-public class GlutenFreeShop implements Supplier {
+public class GlutenFreeShop implements Producer {
     @Override
-    public String process(Order order) {
-        if (order.productName.equals("mąka bezglutenowa") && order.quantity <= 10) {
-            return "Zamówienie na " + order.quantity + "kg mąki bezglutenowej  zostało zrealizowane pomyślnie " +
-                    "przez GlutenFreeShop";
-        } else {
-            return "Produkt niedostępny lub zamówiono zbyt dużą ilość! ";
-        }
+    public boolean process(Product product, int quantity) {
+        System.out.println("Processing order in GlutenFreeShop for " + quantity + " of " + product.getName());
+
+        return true;
     }
 }
