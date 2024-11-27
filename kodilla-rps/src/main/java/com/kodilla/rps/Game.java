@@ -27,14 +27,12 @@ public class Game {
             String playerMove = scanner.nextLine();
 
             if (playerMove.equalsIgnoreCase("x")) {
-                if (confirmExit(scanner)) {
                     break;
-                }
+
             } else if (playerMove.equalsIgnoreCase("n")) {
-                if (confirmNewGame(scanner)) {
                     resetGame();
                     return;
-                }
+
             } else if (!playerMove.equals("1") && !playerMove.equals("2") && !playerMove.equals("3")) {
                 OutputDisplay.wrongMove();
                 continue;
@@ -47,15 +45,6 @@ public class Game {
         displayFinalResult();
     }
 
-    private static boolean confirmExit(Scanner scanner) {
-        OutputDisplay.endGame();
-        return scanner.nextLine().equalsIgnoreCase("t");
-    }
-
-    private static boolean confirmNewGame(Scanner scanner) {
-        OutputDisplay.endActualGame();
-        return scanner.nextLine().equalsIgnoreCase("t");
-    }
 
     private static void evaluateRound(String playerMove, int computerMove) {
         String playerChoice = getChoice(playerMove);
@@ -78,16 +67,12 @@ public class Game {
     }
 
     private static String getChoice(String move) {
-        switch (move) {
-            case "1":
-                return "kamien";
-            case "2":
-                return "papier";
-            case "3":
-                return "nozyce";
-            default:
-                return "";
-        }
+        return switch (move) {
+            case "1" -> "kamien";
+            case "2" -> "papier";
+            case "3" -> "nozyce";
+            default -> "";
+        };
     }
 
     private static void displayFinalResult() {
