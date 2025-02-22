@@ -10,4 +10,7 @@ include 'kodilla-spring-intro'
 include 'kodilla-spring'
 include 'kodilla-spring-web'
 include 'kodilla-proejct-patterns'
+include 'kodilla-proejct-patterns:kodilla-jdbc'
+findProject(':kodilla-proejct-patterns:kodilla-jdbc')?.name = 'kodilla-jdbc'
+include 'kodilla-jdbc'
 
