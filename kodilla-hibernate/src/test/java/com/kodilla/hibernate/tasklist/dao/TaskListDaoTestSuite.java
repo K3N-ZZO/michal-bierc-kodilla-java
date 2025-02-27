@@ -1,6 +1,5 @@
 package com.kodilla.hibernate.tasklist.dao;
 
-import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.tasklist.TaskList;
 import com.kodilla.hibernate.tasklist.TaskListDao;
 import org.junit.jupiter.api.Test;
