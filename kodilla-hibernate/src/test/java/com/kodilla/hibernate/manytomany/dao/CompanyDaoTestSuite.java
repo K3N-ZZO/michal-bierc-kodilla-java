@@ -6,12 +6,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany(){
@@ -57,7 +62,30 @@ public class CompanyDaoTestSuite {
 //        } catch (Exception e){
 //            //do nothing
 //        }
+    }
+
+    @Test
+    void testfindBythreeLetters(){
+        //Given
+        Company company1 = new Company("ABC TECH");
+        Company company2 = new Company("DEF TECH");
+        Company company3 = new Company("ABC MECH");
+
+        companyDao.save(company1);
+        companyDao.save(company2);
+        companyDao.save(company3);
+
+        List<Company> companyList = companyDao.findByThreeLetters("ABC");
+
+        //Then
+        assertEquals(2, companyList.size());
+
+        //Cleanup
+        companyDao.delete(company1);
+        companyDao.delete(company2);
+        companyDao.delete(company3);
 
 
     }
+
 }

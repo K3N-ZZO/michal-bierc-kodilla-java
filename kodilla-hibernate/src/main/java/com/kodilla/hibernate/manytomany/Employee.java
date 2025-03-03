@@ -6,6 +6,10 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+         name = "Employee.findByLastName",
+         query = "SELECT e FROM Employee e WHERE e.lastname = :lastname"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
