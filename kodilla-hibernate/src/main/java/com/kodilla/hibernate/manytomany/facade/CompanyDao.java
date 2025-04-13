@@ -1,7 +1,6 @@
-package com.kodilla.hibernate.manytomany.dao;
+package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -10,10 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Transactional
 public interface CompanyDao extends CrudRepository<Company, Integer> {
 
-    @Query(nativeQuery = true, name = "Company.findByThreeLetters")
-    List<Company> findByThreeLetters(@Param("prefix")String prefix);
+    @Query(name = "Company.findByFragment")
+    List<Company> findByFragment(@Param("ARG") String nameFragment);
 
 }
